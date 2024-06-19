@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "Kingfisher"
+  s.name         = "X_Kingfisher"
   s.version      = "7.12.0"
   s.summary      = "A lightweight and pure Swift implemented library for downloading and cacheing image from the web."
 
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = "6.0"
   s.visionos.deployment_target = "1.0"
 
-  s.source       = { :git => "https://github.com/onevcat/Kingfisher.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/xuhaoyuan/Kingfisher.git", :tag => s.version }
   s.source_files  = ["Sources/**/*.swift"]
   s.resource_bundles = {"Kingfisher" => ["Sources/PrivacyInfo.xcprivacy"]}
 

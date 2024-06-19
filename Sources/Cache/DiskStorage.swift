@@ -82,7 +82,7 @@ public enum DiskStorage {
 
         // If `creatingDirectory` is `false`, the directory preparation will be skipped.
         // We need to call `prepareDirectory` manually after this returns.
-        init(noThrowConfig config: Config, creatingDirectory: Bool, maybeCachedChecking: Bool) {
+        init(noThrowConfig config: Config, creatingDirectory: Bool, maybeCachedChecking: Bool = true) {
             var config = config
 
             let creation = Creation(config)
