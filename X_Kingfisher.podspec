@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "X_Kingfisher"
-  s.version      = "7.12.0"
+  s.version      = "7.13.0"
   s.summary      = "A lightweight and pure Swift implemented library for downloading and cacheing image from the web."
 
   s.description  = <<-DESC
