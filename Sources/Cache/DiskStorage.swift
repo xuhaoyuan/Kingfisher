@@ -65,7 +65,7 @@ public enum DiskStorage {
         // A shortcut (which contains false-positive) to improve matching performance.
         var maybeCached : Set<String>?
         let maybeCachedCheckingQueue = DispatchQueue(label: "com.onevcat.Kingfisher.maybeCachedCheckingQueue")
-        private let maybeCachedChecking: Bool
+        public var maybeCachedChecking: Bool = true
 
         // `false` if the storage initialized with an error.
         // This prevents unexpected forcibly crash when creating storage in the default cache.
@@ -76,18 +76,17 @@ public enum DiskStorage {
         /// - Parameter config: The configuration used for this disk storage.
         /// - Throws: An error if the folder for storage cannot be obtained or created.
         public convenience init(config: Config) throws {
-            self.init(noThrowConfig: config, creatingDirectory: false, maybeCachedChecking: true)
+            self.init(noThrowConfig: config, creatingDirectory: false)
             try prepareDirectory()
         }
 
         // If `creatingDirectory` is `false`, the directory preparation will be skipped.
         // We need to call `prepareDirectory` manually after this returns.
-        init(noThrowConfig config: Config, creatingDirectory: Bool, maybeCachedChecking: Bool = true) {
+        init(noThrowConfig config: Config, creatingDirectory: Bool) {
             var config = config
 
             let creation = Creation(config)
             self.directoryURL = creation.directoryURL
-            self.maybeCachedChecking = maybeCachedChecking
             // Break any possible retain cycle set by outside.
             config.cachePathBlock = nil
             _config = config
